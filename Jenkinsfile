@@ -5,9 +5,9 @@ pipeline {
         maven 'M2_HOME'
     }
 
-	environment {	
-		DOCKERHUB_CREDENTIALS=credentials('docker-login-credentials')
-	} 
+	//environment {	
+	//	DOCKERHUB_CREDENTIALS=credentials('docker-login-credentials')
+	//} 
     
     stages {
         stage('SCM Checkout') {
@@ -35,8 +35,11 @@ pipeline {
     steps {
         script {
             // Retrieve Docker Hub credentials from Jenkins credentials
-            withCredentials([usernamePassword(credentialsId: 'docker-login-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-                echo "Docker Hub Username: $DOCKER_USERNAME"
+          //  withCredentials([usernamePassword(credentialsId: 'docker-login-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                withCredentials([usernameColonPassword(credentialsId: 'docker-login-credentials', variable: 'docker-login-credentials')]) {
+    // some block
+}
+		echo "Docker Hub Username: $DOCKER_USERNAME"
                 echo "Docker Hub Password: $DOCKER_PASSWORD"
                 
                 sh "docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD"
