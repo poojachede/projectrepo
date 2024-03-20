@@ -1,9 +1,9 @@
 pipeline {
     agent any
-    tools {
+   // tools {
         // Install the Maven version configured as "M2" and add it to the path.
-        Maven '/opt/apache-maven-3.6.3'
-    }
+   //     Maven '/opt/apache-maven-3.6.3'
+   // }
 
 	environment {	
 		DOCKERHUB_CREDENTIALS=credentials('dockerloginid')
@@ -13,7 +13,7 @@ pipeline {
         stage('SCM Checkout') {
             steps {
                 // Get some code from a GitHub repository
-                // git 'https://github.com/prasad-gamut/BankingApp1.git'
+                // git 'https://github.com/poojachede/projectrepo'
 		        checkout scm
             }
 		}
