@@ -26,9 +26,9 @@ pipeline {
         stage("Docker build") {
             steps {
                 sh 'docker version'
-                sh "docker build -t dprasaddevops/bankapp-eta-app:${BUILD_NUMBER} ."
+                sh "docker build -t poojachede/bankapp-eta-app:${BUILD_NUMBER} ."
                 sh 'docker image list'
-                sh "docker tag dprasaddevops/bankapp-eta-app:${BUILD_NUMBER} dprasaddevops/bankapp-eta-app:latest"
+                sh "docker tag poojachede/bankapp-eta-app:${BUILD_NUMBER} poojachede/bankapp-eta-app:latest"
             }
         }
         stage('Login2DockerHub and Push the Image') {
@@ -40,7 +40,7 @@ pipeline {
                 echo "Docker Hub Password: $DOCKER_PASSWORD"
                 
                 sh "docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD"
-		sh "docker push dprasaddevops/bankapp-eta-app:latest"
+		sh "docker push poojachede/bankapp-eta-app:latest"
             }
         }
     }
