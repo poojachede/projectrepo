@@ -14,7 +14,7 @@ pipeline {
             steps {
                 // Get some code from a GitHub repository
                 // git 'https://github.com/poojachede/projectrepo'
-		        checkout scm
+		        git branch: 'main', url: 'https://github.com/poojachede/projectrepo.git'
             }
 		}
         stage('Maven Build') {
