@@ -2,7 +2,7 @@ pipeline {
     agent any
     tools {
         // Install the Maven version configured as "M2" and add it to the path.
-        Maven 'apache-maven-3.6.3'
+        Maven '/opt/apache-maven-3.6.3'
     }
 
 	environment {	
