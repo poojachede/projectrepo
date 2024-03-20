@@ -5,9 +5,9 @@ pipeline {
    //     Maven '/opt/apache-maven-3.6.3'
    // }
 
-	environment {	
-		DOCKERHUB_CREDENTIALS=credentials('dockerloginid')
-	} 
+//	environment {	
+//		DOCKERHUB_CREDENTIALS=credentials('dockerloginid')
+//	} 
     
     stages {
         stage('SCM Checkout') {
